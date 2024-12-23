@@ -9,7 +9,7 @@ const Titlecard = ({ title, category }) => {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNjc2MWViNzYzMTM2ODRiODQyMmYwNzAyMjQzYmRjMyIsIm5iZiI6MTczMjMzNjc5MS43MTgyNzkxLCJzdWIiOiI2NmY5NDcxNzI3MTIwMDQ5MmVjYzRmNzMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.9069UXUdytfBkm9GBgbK5KoOOMNkvqR1KkYixMJIcDI'
+      Authorization: `Bearer ${sessionStorage.getItem('ACCESS_TOKEN')}`
     }
   };
   

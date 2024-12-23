@@ -37,7 +37,8 @@ const signup = async (name ,email, password) => {
 }
 const login = async (email, password)=>{
   try {
-    await signInWithEmailAndPassword(auth, email, password);
+    const loginDetails = await signInWithEmailAndPassword(auth, email, password);
+    sessionStorage.setItem('ACCESS_TOKEN', loginDetails._tokenResponse.refreshToken)
   } catch (error) {
     console.log(error);
     toast.error(error.code.split('/')[1].split('-').join(" "))
@@ -46,7 +47,9 @@ const login = async (email, password)=>{
 }
 
 const logout = () => {
-  signOut(auth);
+  signOut(auth).then(()=>{
+    sessionStorage.removeItem('ACCESS_TOKEN')
+  });
 }
 
 export {signup,login,logout,auth,db};
